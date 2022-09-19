@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "270476510879",
+    "firebase_url": "https://vantal-default-rtdb.firebaseio.com",
+    "project_id": "vantal",
+    "storage_bucket": "vantal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:270476510879:android:232ac6cc5e58657951c4aa",
+        "android_client_info": {
+          "package_name": "be.bf.android.vantal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "270476510879-hdja4h69eqfjm7tflb340qttbtq19cpn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdSc8yS5Gkqb4LExRuYpG8dO4uHXfGNaQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "270476510879-hdja4h69eqfjm7tflb340qttbtq19cpn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
