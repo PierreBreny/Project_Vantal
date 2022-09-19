@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Vantal</string>
+    <string name="search">Search</string>
+    <string name="bookings">Bookings</string>
+    <string name="favorites">Favorites</string>
+    <string name="user">User</string>
+    <string name="profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="register">Register</string>
+    <string name="skip">Skip</string>
+    <string name="password">Password</string>
+    <string name="firstname">Firstname</string>
+    <string name="lastname">Lastname</string>
+    <string name="email">Email</string>
+    <string name="birthdate">Birthdate</string>
+    <string name="already_account">Already Have an account?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="login">Login</string>
+    <string name="no_account">Don\'t Have an account yet?</string>
 </resources>
