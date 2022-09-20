@@ -2,16 +2,16 @@
     <item
         android:id="@+id/homeFragment"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_search_24"
+        android:icon="@drawable/search_selector"
         android:title="@string/search"/>
     <item
         android:id="@+id/bookingFragment"
         android:enabled="true"
-        android:icon="@drawable/ic_bookings"
+        android:icon="@drawable/rental_selector"
         android:title="@string/rentals"/>
     <item
         android:id="@+id/profileFragment"
         android:enabled="true"
-        android:icon="@drawable/ic_profile"
+        android:icon="@drawable/account_selector"
         android:title="@string/account"/>
 </menu>

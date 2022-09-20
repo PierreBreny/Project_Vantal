@@ -22,4 +22,9 @@
     <string name="account">Account</string>
     <string name="upcoming">Upcoming</string>
     <string name="ended">Ended</string>
+    <string name="payment_methods">Payment methods</string>
+    <string name="help">Help centre</string>
+    <string name="contact">Contact Vantal</string>
+    <string name="got_van">Got a van?</string>
+    <string name="earn_cash">Earn some cash by sharing it</string>
 </resources>
