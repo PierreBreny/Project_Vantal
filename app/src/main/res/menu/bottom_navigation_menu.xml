@@ -8,10 +8,10 @@
         android:id="@+id/bookingFragment"
         android:enabled="true"
         android:icon="@drawable/ic_bookings"
-        android:title="@string/bookings"/>
+        android:title="@string/rentals"/>
     <item
         android:id="@+id/profileFragment"
         android:enabled="true"
         android:icon="@drawable/ic_profile"
-        android:title="@string/profile"/>
+        android:title="@string/account"/>
 </menu>

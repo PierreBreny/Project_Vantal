@@ -18,4 +18,8 @@
     <string name="sign_in">Sign in</string>
     <string name="login">Login</string>
     <string name="no_account">Don\'t Have an account yet?</string>
+    <string name="rentals">Rentals</string>
+    <string name="account">Account</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="ended">Ended</string>
 </resources>

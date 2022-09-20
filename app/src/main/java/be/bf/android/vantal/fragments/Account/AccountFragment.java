@@ -1,4 +1,4 @@
-package be.bf.android.vantal.fragments.Booking;
+package be.bf.android.vantal.fragments.Account;
 
 import android.os.Bundle;
 
@@ -11,14 +11,15 @@ import android.view.ViewGroup;
 import be.bf.android.vantal.R;
 
 
-public class BookingFragment extends Fragment {
+public class AccountFragment extends Fragment {
 
-    public BookingFragment() {
+
+    public AccountFragment() {
         // Required empty public constructor
     }
 
-    public static BookingFragment newInstance(String param1, String param2) {
-        BookingFragment fragment = new BookingFragment();
+    public static AccountFragment newInstance(String param1, String param2) {
+        AccountFragment fragment = new AccountFragment();
         return fragment;
     }
 
@@ -31,6 +32,6 @@ public class BookingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_booking, container, false);
+        return inflater.inflate(R.layout.fragment_account, container, false);
     }
 }
