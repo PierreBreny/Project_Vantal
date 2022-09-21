@@ -4,6 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/STG0523/AndroidStudioProjects/Project_Vantal/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_account.xml" value="0.30124458644701113" />
+        <entry key="app/src/main/res/layout/fragment_edit_profile.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.26458333333333334" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.33" />
       </map>
     </option>
   </component>

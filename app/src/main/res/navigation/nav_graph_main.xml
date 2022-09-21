@@ -16,14 +16,14 @@
     </fragment>
     <fragment
         android:id="@+id/bookingFragment"
-        android:name="be.bf.android.vantal.fragments.Booking.BookingFragment"
+        android:name="be.bf.android.vantal.fragments.Rental.RentalFragment"
         android:label="fragment_booking"
-        tools:layout="@layout/fragment_booking" />
+        tools:layout="@layout/fragment_rental" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="be.bf.android.vantal.fragments.Profile.ProfileFragment"
+        android:name="be.bf.android.vantal.fragments.Account.AccountFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_account" />
     <fragment
         android:id="@+id/mapFragment"
         android:name="be.bf.android.vantal.fragments.Map.MapFragment"
