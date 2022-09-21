@@ -27,4 +27,16 @@
     <string name="contact">Contact Vantal</string>
     <string name="got_van">Got a van?</string>
     <string name="earn_cash">Earn some cash by sharing it</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="member_since">Member since</string>
+    <string name="edit_account">Edit or delete my account</string>
+    <string name="logout">Log out</string>
+    <string name="rentals_lowcase">rentals</string>
+    <string name="mobile_phone">Mobile phone</string>
+    <string name="address">Address</string>
+    <string name="postcode">Postcode</string>
+    <string name="city">City</string>
+    <string name="country">Country</string>
+    <string name="additional_info">Additional information</string>
+    <string name="about_me">A bit about me (optional)</string>
 </resources>
