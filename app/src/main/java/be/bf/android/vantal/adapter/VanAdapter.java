@@ -23,10 +23,16 @@ public class VanAdapter extends RecyclerView.Adapter<VanAdapter.ViewHolder> {
 
     private List<Van> vans;
     private Context context;
+    private OnVanItemClick onVanItemClick;
 
-    public VanAdapter(Context context, List<Van> vans) {
+    public interface OnVanItemClick {
+        void onVanItemClick(Van van);
+    }
+
+    public VanAdapter(Context context, List<Van> vans, OnVanItemClick onVanItemClick) {
         this.context = context;
         this.vans = vans;
+        this.onVanItemClick = onVanItemClick;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -68,6 +74,13 @@ public class VanAdapter extends RecyclerView.Adapter<VanAdapter.ViewHolder> {
 
         TextView price = holder.price;
         price.setText(String.valueOf(currentVan.getPrice()));
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onVanItemClick.onVanItemClick(currentVan);
+            }
+        });
 
 
     }

@@ -7,7 +7,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -42,7 +44,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements VanAdapter.OnVanItemClick {
 
     private TextInputLayout textInputLayout;
     private AutoCompleteTextView autoComplete;
@@ -50,6 +52,7 @@ public class HomeFragment extends Fragment {
     private VanAdapter adapter;
     private VanAPI api;
     String query = null;
+    private NavController navController;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -74,6 +77,8 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
+        navController = NavHostFragment.findNavController(this);
+
         LocationHelper.setActivity(requireActivity());
         LocationHelper.setContext(requireContext());
         LocationHelper.setLocationRequest();
@@ -84,7 +89,7 @@ public class HomeFragment extends Fragment {
 
         binding.searchBar.setEndIconOnClickListener(this::loadMap);
 
-        adapter = new VanAdapter(requireContext(), new ArrayList<>());
+        adapter = new VanAdapter(requireContext(), new ArrayList<>(), this);
         binding.rvVanHome.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false));
         binding.rvVanHome.setAdapter(adapter);
 
@@ -140,5 +145,12 @@ public class HomeFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onVanItemClick(Van van) {
+        navController.navigate(R.id.action_homeFragment_to_detailsFragment);
+
+
     }
 }
