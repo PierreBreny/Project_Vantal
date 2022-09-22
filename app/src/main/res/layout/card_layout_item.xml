@@ -9,7 +9,8 @@
     app:cardElevation="8dp"
     app:cardMaxElevation="10dp"
     app:cardPreventCornerOverlap="true"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    android:clickable="true">
 
     <!-- In the above cardview widget cardelevation property will give elevation to your card view
         card corner radius will provide radius to your card view card background color will give
