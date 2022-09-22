@@ -120,7 +120,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/payment_methods_card"
+        android:id="@+id/edit_profile_card"
         android:layout_width="325dp"
         android:layout_height="47dp"
         android:layout_marginTop="4dp"
@@ -157,13 +157,13 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/help_card"
+        android:id="@+id/delete_account_card"
         android:layout_width="325dp"
         android:layout_height="47dp"
         android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/payment_methods_card"
+        app:layout_constraintTop_toBottomOf="@+id/edit_profile_card"
         android:clickable="true"
         android:focusable="true"
         android:checkable="true"
@@ -198,7 +198,7 @@
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/help_card"
+        app:layout_constraintTop_toBottomOf="@+id/delete_account_card"
         android:clickable="true"
         android:focusable="true"
         android:checkable="true"

@@ -20,10 +20,14 @@
         android:label="fragment_booking"
         tools:layout="@layout/fragment_rental" />
     <fragment
-        android:id="@+id/profileFragment"
+        android:id="@+id/accountFragment"
         android:name="be.bf.android.vantal.fragments.Account.AccountFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_account" />
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_accountFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/mapFragment"
         android:name="be.bf.android.vantal.fragments.Map.MapFragment"
@@ -33,5 +37,30 @@
         <action
             android:id="@+id/action_mapFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="be.bf.android.vantal.fragments.Profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile">
+
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="be.bf.android.vantal.fragments.Profile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile"
+        >
+
+
+        <action
+            android:id="@+id/action_editProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
 </navigation>
