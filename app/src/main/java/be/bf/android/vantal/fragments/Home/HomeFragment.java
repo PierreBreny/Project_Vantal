@@ -1,10 +1,12 @@
 package be.bf.android.vantal.fragments.Home;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,12 +15,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import be.bf.android.vantal.R;
 import be.bf.android.vantal.adapter.VanAdapter;
@@ -36,8 +45,11 @@ import retrofit2.Retrofit;
 public class HomeFragment extends Fragment {
 
     private TextInputLayout textInputLayout;
+    private AutoCompleteTextView autoComplete;
     private FragmentHomeBinding binding;
     private VanAdapter adapter;
+    private VanAPI api;
+    String query = null;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -76,14 +88,40 @@ public class HomeFragment extends Fragment {
         binding.rvVanHome.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false));
         binding.rvVanHome.setAdapter(adapter);
 
-        VanAPI api = RetrofitClient.client.create(VanAPI.class);
+        api = RetrofitClient.client.create(VanAPI.class);
 
-        api.getVan().enqueue(new Callback<List<Van>>() {
+        getVans(null);
+
+        binding.autoComplete.setOnItemClickListener((parent, view1, position, id) -> {
+            query = binding.autoComplete.getText().toString();
+            getVans(query);
+            closeKeyboard();
+        });
+
+        return view;
+    }
+
+    private void closeKeyboard() {
+        InputMethodManager inputManager = (InputMethodManager)getActivity().getSystemService(getContext().INPUT_METHOD_SERVICE);
+        inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),
+                InputMethodManager.HIDE_NOT_ALWAYS);
+    }
+
+    private void getVans(String q) {
+        api.getVan(q).enqueue(new Callback<List<Van>>() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onResponse(Call<List<Van>> call, Response<List<Van>> response) {
                 if (response.body() != null) {
                     List<Van> vans = response.body();
+                    // Autocomplete feature
+                    if (q == null) {
+                        List<String> vanCities = vans.stream().map(Van::getCity).collect(Collectors.toList());
+                        ArrayAdapter<String> cityAdapter = new ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_activated_1, vanCities);
+                        binding.autoComplete.setAdapter(cityAdapter);
+                    }
                     adapter.setVans(vans);
+                    binding.autoComplete.setText("");
                 }
             }
 
@@ -92,15 +130,11 @@ public class HomeFragment extends Fragment {
                 Log.d("HomeFrag", t.getMessage());
             }
         });
-
-        return view;
     }
 
     private void loadMap(View view) {
         NavHostFragment.findNavController(this).navigate(R.id.action_homeFragment_to_mapFragment);
     }
-
-
 
     @Override
     public void onDestroyView() {
