@@ -149,8 +149,9 @@ public class HomeFragment extends Fragment implements VanAdapter.OnVanItemClick 
 
     @Override
     public void onVanItemClick(Van van) {
-        navController.navigate(R.id.action_homeFragment_to_detailsFragment);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("van", van);
 
-
+        navController.navigate(R.id.action_homeFragment_to_detailsFragment, bundle);
     }
 }
