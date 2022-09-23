@@ -5,10 +5,13 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
@@ -28,6 +31,12 @@ import be.bf.android.vantal.databinding.FragmentHomeBinding;
 public class DetailsFragment extends Fragment {
 
     ImageSlider imageSlider;
+    TextView title;
+    TextView description;
+    TextView rating;
+    TextView price;
+    private NavController navController;
+
 
 
     public DetailsFragment() {
@@ -50,7 +59,10 @@ public class DetailsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_details, container, false);
 
+        navController = NavHostFragment.findNavController(this);
+
         imageSlider = (ImageSlider) view.findViewById(R.id.slider);
+
 
         ArrayList<SlideModel> slideModels = new ArrayList<>();
 
@@ -66,6 +78,22 @@ public class DetailsFragment extends Fragment {
         }
         //Set ImageList
         imageSlider.setImageList(slideModels);
+
+        // Get van title
+        title = view.findViewById(R.id.van_title);
+        title.setText(van.getTitle());
+
+        //Get van description
+        description = view.findViewById(R.id.van_description);
+        description.setText(van.getDescription());
+
+        //Get van price
+        price = view.findViewById(R.id.price);
+        price.setText(String.valueOf(van.getPrice()));
+
+        //Get van rating
+        rating = view.findViewById(R.id.rating);
+        rating.setText(String.valueOf(van.getRating()));
 
         return view;
     }
