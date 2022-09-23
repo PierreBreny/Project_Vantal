@@ -41,6 +41,8 @@ public class VanAdapter extends RecyclerView.Adapter<VanAdapter.ViewHolder> {
         public TextView titleVan;
         public TextView ratingVan;
         public TextView price;
+        public TextView city;
+        public TextView country;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -48,6 +50,8 @@ public class VanAdapter extends RecyclerView.Adapter<VanAdapter.ViewHolder> {
             titleVan = itemView.findViewById(R.id.titleVan);
             ratingVan = itemView.findViewById(R.id.rating);
             price = itemView.findViewById(R.id.price);
+            city = itemView.findViewById(R.id.city);
+            country = itemView.findViewById(R.id.country);
         }
     }
 
@@ -74,6 +78,12 @@ public class VanAdapter extends RecyclerView.Adapter<VanAdapter.ViewHolder> {
 
         TextView price = holder.price;
         price.setText(String.valueOf(currentVan.getPrice()));
+
+        TextView city = holder.city;
+        city.setText(currentVan.getCity());
+
+        TextView country = holder.country;
+        country.setText(currentVan.getCountry());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

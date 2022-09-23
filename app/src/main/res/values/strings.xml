@@ -39,4 +39,5 @@
     <string name="country">Country</string>
     <string name="additional_info">Additional information</string>
     <string name="about_me">A bit about me (optional)</string>
+    <string name="comma">,</string>
 </resources>
