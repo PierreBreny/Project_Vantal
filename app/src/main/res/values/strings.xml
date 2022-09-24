@@ -44,4 +44,6 @@
     <string name="message">Message:</string>
     <string name="type_message">Type your message here</string>
     <string name="send">Send</string>
+    <string name="add_card">Add card</string>
+    <string name="no_card_yet">You have not registered a card yet.</string>
 </resources>

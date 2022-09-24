@@ -43,6 +43,9 @@
         <action
             android:id="@+id/action_accountFragment_to_contactFragment"
             app:destination="@id/contactFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_payMethodFragment"
+            app:destination="@id/payMethodFragment" />
     </fragment>
     <fragment
         android:id="@+id/mapFragment"
@@ -84,5 +87,27 @@
         <action
             android:id="@+id/action_contactFragment_to_accountFragment"
             app:destination="@id/accountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/payMethodFragment"
+        android:name="be.bf.android.vantal.fragments.PayMethod.PayMethodFragment"
+        android:label="fragment_pay_method"
+        tools:layout="@layout/fragment_pay_method">
+        <action
+            android:id="@+id/action_payMethodFragment_to_addCardFragment"
+            app:destination="@id/addCardFragment" />
+        <action
+            android:id="@+id/action_payMethodFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCardFragment"
+        android:name="be.bf.android.vantal.fragments.AddCard.AddCardFragment"
+        android:label="fragment_add_card"
+        tools:layout="@layout/fragment_add_card">
+
+        <action
+            android:id="@+id/action_addCardFragment_to_payMethodFragment"
+            app:destination="@id/payMethodFragment" />
     </fragment>
 </navigation>
