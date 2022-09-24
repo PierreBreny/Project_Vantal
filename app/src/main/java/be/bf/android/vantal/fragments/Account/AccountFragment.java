@@ -1,5 +1,7 @@
 package be.bf.android.vantal.fragments.Account;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
@@ -16,7 +18,11 @@ import be.bf.android.vantal.R;
 
 public class AccountFragment extends Fragment {
     private CardView profile_card;
+    private CardView help_card;
     private NavController navController;
+
+    // Help number
+    private String number;
 
     public AccountFragment() {
         // Required empty public constructor
@@ -43,7 +49,20 @@ public class AccountFragment extends Fragment {
         profile_card = view.findViewById(R.id.profile_card);
         profile_card.setOnClickListener(this::goToProfile);
 
+        help_card = view.findViewById(R.id.help_card);
+        help_card.setOnClickListener(this::callHelp);
+
         return view;
+    }
+
+    private void callHelp(View view) {
+
+        // Set help number
+        number = "+32497241148";
+
+        // Dial intent
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + Uri.decode(number)));
+        startActivity(intent);
     }
 
     private void goToProfile(View view) {
