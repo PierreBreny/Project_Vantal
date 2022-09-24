@@ -19,6 +19,7 @@ import be.bf.android.vantal.R;
 public class AccountFragment extends Fragment {
     private CardView profile_card;
     private CardView help_card;
+    private CardView contact_card;
     private NavController navController;
 
     // Help number
@@ -52,7 +53,14 @@ public class AccountFragment extends Fragment {
         help_card = view.findViewById(R.id.help_card);
         help_card.setOnClickListener(this::callHelp);
 
+        contact_card = view.findViewById(R.id.contact_card);
+        contact_card.setOnClickListener(this::goToContact);
+
         return view;
+    }
+
+    private void goToContact(View view) {
+        navController.navigate(R.id.action_accountFragment_to_contactFragment);
     }
 
     private void callHelp(View view) {

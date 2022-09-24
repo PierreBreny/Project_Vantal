@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_accountFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_contactFragment"
+            app:destination="@id/contactFragment" />
     </fragment>
     <fragment
         android:id="@+id/mapFragment"
@@ -68,12 +71,18 @@
         android:id="@+id/editProfileFragment"
         android:name="be.bf.android.vantal.fragments.Profile.EditProfileFragment"
         android:label="fragment_edit_profile"
-        tools:layout="@layout/fragment_edit_profile"
-        >
-
-
+        tools:layout="@layout/fragment_edit_profile">
         <action
             android:id="@+id/action_editProfileFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactFragment"
+        android:name="be.bf.android.vantal.fragments.Contact.ContactFragment"
+        android:label="fragment_contact"
+        tools:layout="@layout/fragment_contact">
+        <action
+            android:id="@+id/action_contactFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
     </fragment>
 </navigation>

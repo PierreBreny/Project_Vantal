@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.Rental.RentalFragment">
+
+    <TextView
+        android:id="@+id/contactTitle"
+        android:layout_width="90dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/contact"
+        android:textColor="#191717"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_subject_title"
+        android:layout_width="90dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/subject"
+        android:textColor="#191717"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contactTitle" />
+
+    <EditText
+        android:id="@+id/et_subject"
+        android:layout_width="340dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:hint="Subject"
+        android:inputType="text"
+        android:textColorHint="#C1595858"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_subject_title" />
+
+    <TextView
+        android:id="@+id/tv_message_title"
+        android:layout_width="115dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/message"
+        android:textColor="#191717"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_subject" />
+
+    <EditText
+        android:id="@+id/et_message"
+        android:layout_width="339dp"
+        android:layout_height="377dp"
+
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:gravity="start"
+        android:hint="@string/type_message"
+        android:inputType="text"
+        android:textColorHint="#C1595858"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_message_title" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/send_btn"
+        android:layout_width="330dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="@color/cursor"
+        android:elevation="10dp"
+        android:text="@string/send"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_message" />
+
+    <TextView
+        android:id="@+id/back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:clickable="true"
+        android:text="Back"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/send_btn" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

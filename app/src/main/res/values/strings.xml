@@ -40,4 +40,8 @@
     <string name="additional_info">Additional information</string>
     <string name="about_me">A bit about me (optional)</string>
     <string name="comma">,</string>
+    <string name="subject">Subject:</string>
+    <string name="message">Message:</string>
+    <string name="type_message">Type your message here</string>
+    <string name="send">Send</string>
 </resources>
