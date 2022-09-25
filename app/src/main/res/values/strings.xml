@@ -46,4 +46,7 @@
     <string name="send">Send</string>
     <string name="add_card">Add card</string>
     <string name="no_card_yet">You have not registered a card yet.</string>
+    <string name="cardholder">Cardholder name</string>
+    <string name="xxxx">XXXX</string>
+    <string name="expiry">expiry</string>
 </resources>
