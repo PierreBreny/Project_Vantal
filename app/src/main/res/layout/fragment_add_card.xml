@@ -35,6 +35,7 @@
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/card_gradient">
@@ -380,7 +381,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton2"
+        android:id="@+id/save_btn"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="36dp"
