@@ -123,14 +123,8 @@ public class AddCardFragment extends Fragment {
         cardNumber = digits1 + digits2 + digits3 + digits4;
 
         // Save cardNumber in DB
-
-
-
-//        CardDB cardDb = Room.databaseBuilder(getContext(), CardDB.class, "card-database").build();
-//
         Card card = new Card(cardHolder, cardNumber, cvv, exp_month, exp_year);
         cardDao.insert(card);
-//
-//        cardDb.cardDAO().insertAll(card);
+
     }
 }

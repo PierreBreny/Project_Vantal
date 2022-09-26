@@ -65,6 +65,7 @@
         app:placeholderText="@string/firstname">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/firstname_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/firstname"
@@ -92,6 +93,7 @@
         app:layout_constraintTop_toBottomOf="@+id/et_firstname">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/lastname_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/lastname"
@@ -119,6 +121,7 @@
         app:layout_constraintTop_toBottomOf="@+id/et_lastname">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
@@ -148,6 +151,7 @@
         app:layout_constraintTop_toBottomOf="@+id/et_email">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
@@ -178,7 +182,7 @@
         app:layout_constraintTop_toBottomOf="@+id/et_password">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tv_birthdate"
+            android:id="@+id/birthdate_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/birthdate"

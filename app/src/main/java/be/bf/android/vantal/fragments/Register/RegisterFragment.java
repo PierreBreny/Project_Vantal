@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +19,22 @@ import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.android.material.textfield.TextInputLayout;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import be.bf.android.vantal.R;
+import be.bf.android.vantal.api.RetrofitClient;
+import be.bf.android.vantal.api.UserAPI;
+import be.bf.android.vantal.api.VanAPI;
+import be.bf.android.vantal.api.dto.User;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RegisterFragment extends Fragment {
 
@@ -26,6 +42,8 @@ public class RegisterFragment extends Fragment {
     private Button register_btn;
     private NavController navController;
     private TextInputLayout birthdate_field;
+    private EditText firstname_value, lastname_value, email_value, password_value, birthdate_value;
+    private UserAPI userAPI;
     
 
     public RegisterFragment() {
@@ -54,18 +72,28 @@ public class RegisterFragment extends Fragment {
         birthdate_field = view.findViewById(R.id.et_birthdate);
         birthdate_field.setEndIconOnClickListener(this::openDatePicker);
 
-        tv_birthdate = view.findViewById(R.id.tv_birthdate);
+        firstname_value = view.findViewById(R.id.firstname_value);
+        lastname_value = view.findViewById(R.id.lastname_value);
+        email_value = view.findViewById(R.id.email_value);
+        password_value = view.findViewById(R.id.password_value);
+        birthdate_value = view.findViewById(R.id.birthdate_value);
 
         navController = NavHostFragment.findNavController(this);
 
         register_btn = view.findViewById(R.id.register_btn);
-        register_btn.setOnClickListener(this::saveUser);
+        register_btn.setOnClickListener(this::onClick);
 
         tv_sign_in = view.findViewById(R.id.tv_sign_in);
         tv_sign_in.setOnClickListener(this::goToLogin);
 
+        userAPI = RetrofitClient.client.create(UserAPI.class);
+
 
         return view;
+    }
+
+    public void onClick(View view) {
+        saveUser();
     }
 
     private void openDatePicker(View view) {
@@ -85,7 +113,7 @@ public class RegisterFragment extends Fragment {
         datePicker.addOnPositiveButtonClickListener(
                 selection -> {
                     // set selected date
-                    tv_birthdate.setText(datePicker.getHeaderText());
+                    birthdate_value.setText(datePicker.getHeaderText());
                 });
 
     }
@@ -94,9 +122,32 @@ public class RegisterFragment extends Fragment {
         navController.navigate(R.id.action_registerFragment_to_login_fragment);
     }
 
-    private void saveUser(View view) {
+    private void saveUser () {
+
+        String firstname = firstname_value.getText().toString();
+        String lastname = lastname_value.getText().toString();
+        String email = email_value.getText().toString();
+        String password = password_value.getText().toString();
+        String birthdate = birthdate_value.getText().toString();
+
+        User user = new User(firstname, lastname, password, birthdate, email);
+
         // Save user in DB
-        Toast.makeText(getContext(), "Welcome to Vantal, user!", Toast.LENGTH_SHORT).show();
+        userAPI.createUser(user).enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+
+            }
+        });
+
+        //Greet user
+        String userName = firstname_value.getText().toString();
+        Toast.makeText(getContext(), "Welcome to Vantal, "+ userName+"!", Toast.LENGTH_SHORT).show();
         // Redirects to home
         navController.navigate(R.id.action_registerFragment_to_homeFragment);
     }

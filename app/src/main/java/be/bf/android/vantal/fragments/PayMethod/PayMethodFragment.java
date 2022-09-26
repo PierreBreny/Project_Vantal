@@ -61,7 +61,7 @@ public class PayMethodFragment extends Fragment {
         no_card_layout = view.findViewById(R.id.no_card_layout);
         yes_card_layout = view.findViewById(R.id.yes_card_layout);
 
-
+        // Decide which fragment to show
         if (isCardSaved() == false) {
             no_card_layout.setVisibility(View.VISIBLE);
             yes_card_layout.setVisibility(View.INVISIBLE);
@@ -82,6 +82,7 @@ public class PayMethodFragment extends Fragment {
         return view;
     }
 
+    // Check if card is saved in DB --> TO BE CONTINUED ONCE USER CREATION IS IMPLEMENTED
     private boolean isCardSaved() {
         List<Card> cardList = cardDao.getAllCard();
         if (cardList.size() <= 0) {
