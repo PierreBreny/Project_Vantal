@@ -21,6 +21,7 @@ public class AccountFragment extends Fragment {
     private CardView help_card;
     private CardView contact_card;
     private CardView payment_methods_card;
+    private CardView rent_card;
     private NavController navController;
 
     // Help number
@@ -60,7 +61,14 @@ public class AccountFragment extends Fragment {
         payment_methods_card = view.findViewById(R.id.payment_methods_card);
         payment_methods_card.setOnClickListener(this::goToPayMethod);
 
+        rent_card = view.findViewById(R.id.rent_card);
+        rent_card.setOnClickListener(this::rentMyVan);
+
         return view;
+    }
+
+    private void rentMyVan(View view) {
+        navController.navigate(R.id.action_accountFragment_to_addVanFragment);
     }
 
     private void goToPayMethod(View view) {

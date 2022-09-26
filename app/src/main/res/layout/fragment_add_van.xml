@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.Rental.RentalFragment">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/amenities_card"
+        android:layout_width="352dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="24dp"
+        android:clickable="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_van_title" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/air_co_card"
+                android:layout_width="149dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="18dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <ImageView
+                    android:id="@+id/air_conditioning_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/air_conditionning"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_air_conditioning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="14dp"
+                    android:text="Air conditioning"
+                    android:textColor="@color/black" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/bathtub_card"
+                android:layout_width="149dp"
+                android:layout_height="46dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginTop="18dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <ImageView
+                    android:id="@+id/bathtub_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/bathtub"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_bathtub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="14dp"
+                    android:text="Bathtub"
+                    android:textColor="@color/black" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/blanket_pillow_card"
+                android:layout_width="149dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="18dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/air_co_card">
+
+
+                <ImageView
+                    android:id="@+id/blanket_pillow_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/blanket_pillow"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_blanket_pillow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="14dp"
+                    android:text="Extra Blankets"
+                    android:textColor="@color/black" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/body_soap_card"
+                android:layout_width="149dp"
+                android:layout_height="46dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginTop="18dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bathtub_card">
+
+
+                <ImageView
+                    android:id="@+id/body_soap_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/body_soap"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_body_soap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="14dp"
+                    android:text="Body Soap"
+                    android:textColor="@color/black" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/coffee_machine_card"
+                android:layout_width="149dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="18dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/blanket_pillow_card">
+
+
+                <ImageView
+                    android:id="@+id/coffee_machine_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/coffee_machine"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_coffee_machine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="14dp"
+                    android:text="Coffee Machine"
+                    android:textColor="@color/black" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/dishwasher_card"
+                android:layout_width="149dp"
+                android:layout_height="46dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginTop="18dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/body_soap_card">
+
+
+                <ImageView
+                    android:id="@+id/dishwasher_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/dishwasher"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_dishwasher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="14dp"
+                    android:text="Dishwasher"
+                    android:textColor="@color/black" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/fire_extinguisher_card"
+                android:layout_width="149dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="18dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/coffee_machine_card">
+
+
+                <ImageView
+                    android:id="@+id/fire_extinguisher_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/fire_extinguisher"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_fire_extinguisher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="14dp"
+                    android:text="Fire Extinguisher"
+                    android:textColor="@color/black" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/fridge_card"
+                android:layout_width="149dp"
+                android:layout_height="46dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginTop="18dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dishwasher_card">
+
+
+                <ImageView
+                    android:id="@+id/fridge_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/fridge"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_fridge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="14dp"
+                    android:text="Fridge"
+                    android:textColor="@color/black" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/hair_dryer_card"
+                android:layout_width="149dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="18dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fire_extinguisher_card">
+
+
+                <ImageView
+                    android:id="@+id/hair_dryer_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/hair_dryer"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_hair_dryer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="14dp"
+                    android:text="Hair Dryer"
+                    android:textColor="@color/black" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/iron_card"
+                android:layout_width="149dp"
+                android:layout_height="46dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginTop="18dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fridge_card">
+
+
+                <ImageView
+                    android:id="@+id/iron_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/iron_ironing_board"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_iron"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="14dp"
+                    android:text="Iron and Board"
+                    android:textColor="@color/black" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <TextView
+        android:id="@+id/add_van_title"
+        android:layout_width="161dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:text="Rent my van"
+        android:textColor="#191717"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

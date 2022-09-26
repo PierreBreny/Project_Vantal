@@ -52,6 +52,9 @@
         <action
             android:id="@+id/action_accountFragment_to_login_fragment"
             app:destination="@id/login_fragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_addVanFragment"
+            app:destination="@id/addVanFragment" />
     </fragment>
     <fragment
         android:id="@+id/mapFragment"
@@ -150,5 +153,15 @@
         <action
             android:id="@+id/action_login_fragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addVanFragment"
+        android:name="be.bf.android.vantal.fragments.AddVan.AddVanFragment"
+        tools:label="fragment_add_van"
+        tools:layout="@layout/fragment_add_van">
+
+        <action
+            android:id="@+id/action_addVanFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
     </fragment>
 </navigation>
