@@ -3,7 +3,10 @@ package be.bf.android.vantal.fragments.AddCard;
 import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +24,8 @@ public class AddCardFragment extends Fragment {
     private TextView tv_card_digits_1, tv_card_digits_2, tv_card_digits_3, tv_card_digits_4, tv_cardholder, tv_exp_month, tv_exp_year, tv_cvv;
     private EditText et_enter_digits_1, et_enter_digits_2, et_enter_digits_3, et_enter_digits_4, et_cardholder, et_expiry_month, et_expiry_year, et_cvv;
     private Button save_btn;
+    private TextView tv_cancel;
+    private NavController navController;
 
     public AddCardFragment() {
         // Required empty public constructor
@@ -43,6 +48,8 @@ public class AddCardFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_add_card, container, false);
 
+        navController = NavHostFragment.findNavController(this);
+
         // Textview
         tv_card_digits_1 = view.findViewById(R.id.tv_card_digits_1);
         tv_card_digits_2 = view.findViewById(R.id.tv_card_digits_2);
@@ -52,6 +59,7 @@ public class AddCardFragment extends Fragment {
         tv_exp_month = view.findViewById(R.id.tv_exp_month);
         tv_exp_year = view.findViewById(R.id.tv_exp_year);
         tv_cvv = view.findViewById(R.id.tv_cvv);
+        tv_cancel = view.findViewById(R.id.tv_cancel);
 
         // EditText
         et_enter_digits_1 = view.findViewById(R.id.et_enter_digits_1);
@@ -68,16 +76,17 @@ public class AddCardFragment extends Fragment {
 
         save_btn.setOnClickListener(this::saveCard);
 
+        tv_cancel.setOnClickListener(this::goBack);
+
         return view;
+    }
+
+    private void goBack(View view) {
+        navController.navigate(R.id.action_addCardFragment_to_payMethodFragment);
     }
 
     private void saveCard(View view) {
         String digits1, digits2, digits3, digits4, cardNumber;
-
-        Animation animation = AnimationUtils.loadAnimation(getContext().getApplicationContext(), R.anim.push_down);
-
-        CardView profile_card = view.findViewById(R.id.profile_card);
-        profile_card.setAnimation(animation);
 
         // Get digit values
         digits1 = et_enter_digits_1.getText().toString();
@@ -92,9 +101,9 @@ public class AddCardFragment extends Fragment {
         tv_card_digits_4.setText(digits4);
 
         tv_cardholder.setText(et_cardholder.getText().toString());
-        tv_exp_month.setText(String.valueOf(et_expiry_month));
-        tv_exp_year.setText(String.valueOf(et_expiry_year));
-        tv_cvv.setText(String.valueOf(et_cvv));
+        tv_exp_month.setText(et_expiry_month.getText().toString());
+        tv_exp_year.setText(et_expiry_year.getText().toString());
+        tv_cvv.setText(et_cvv.getText().toString());
 
         // Save cardNumber in DB
         cardNumber = digits1 + digits2 + digits3 + digits4;

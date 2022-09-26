@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.navigation.NavController;
@@ -20,7 +22,7 @@ import be.bf.android.vantal.R;
 public class ContactFragment extends Fragment {
 
     private Button send_btn;
-    private Button back_btn;
+    private ImageView back_arrow;
     private EditText te_subject;
     private EditText te_message;
     private NavController navController;
@@ -47,8 +49,11 @@ public class ContactFragment extends Fragment {
 
         navController = NavHostFragment.findNavController(this);
 
-        back_btn = view.findViewById(R.id.back_btn);
-        back_btn.setOnClickListener(this::goBack);
+        back_arrow = view.findViewById(R.id.backArrow);
+        back_arrow.setOnClickListener(this::goBack);
+
+        te_subject = view.findViewById(R.id.et_subject);
+        te_message = view.findViewById(R.id.et_message);
 
         send_btn = view.findViewById(R.id.send_btn);
         send_btn.setOnClickListener(this::sendEmail);
@@ -57,21 +62,20 @@ public class ContactFragment extends Fragment {
     }
 
     private void sendEmail(View view) {
-        te_subject = view.findViewById(R.id.et_subject);
-        te_message = view.findViewById(R.id.et_message);
 
         String subject = te_subject.getText().toString();
         String message = te_message.getText().toString();
         String mailTo = "pierre@vantal.com";
 
-        Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setData(Uri.parse("mailto:"));
-        intent.putExtra(Intent.EXTRA_EMAIL, mailTo);
-        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-        intent.putExtra(Intent.EXTRA_TEXT, message);
+        Intent email = new Intent(Intent.ACTION_SEND);
+        email.setData(Uri.parse("mailto:"));
+        email.putExtra(Intent.EXTRA_EMAIL, new String[]{mailTo});
+        email.putExtra(Intent.EXTRA_SUBJECT, subject);
+        email.putExtra(Intent.EXTRA_TEXT, message);
 
-        startActivity(intent);
+        email.setType("message/rfc822");
 
+        startActivity(Intent.createChooser(email, "Choose an Email client :"));
     }
 
     private void goBack(View view) {

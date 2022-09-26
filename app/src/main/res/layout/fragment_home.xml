@@ -27,6 +27,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
             android:textColorHint="#7E7C7C"
+            app:boxCornerRadiusBottomEnd="25dp"
             app:boxBackgroundColor="@color/white"
             app:boxStrokeWidth="0dp"
             app:boxStrokeWidthFocused="0dp"
@@ -56,7 +57,7 @@
         android:id="@+id/rv_van_home"
         android:layout_width="369dp"
         android:layout_height="595dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_cardview" />

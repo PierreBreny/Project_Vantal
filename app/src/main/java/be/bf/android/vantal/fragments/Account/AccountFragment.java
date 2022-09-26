@@ -20,6 +20,7 @@ public class AccountFragment extends Fragment {
     private CardView profile_card;
     private CardView help_card;
     private CardView contact_card;
+    private CardView payment_methods_card;
     private NavController navController;
 
     // Help number
@@ -56,7 +57,14 @@ public class AccountFragment extends Fragment {
         contact_card = view.findViewById(R.id.contact_card);
         contact_card.setOnClickListener(this::goToContact);
 
+        payment_methods_card = view.findViewById(R.id.payment_methods_card);
+        payment_methods_card.setOnClickListener(this::goToPayMethod);
+
         return view;
+    }
+
+    private void goToPayMethod(View view) {
+        navController.navigate(R.id.action_accountFragment_to_payMethodFragment);
     }
 
     private void goToContact(View view) {

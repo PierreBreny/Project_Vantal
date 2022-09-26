@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -16,6 +17,7 @@ import be.bf.android.vantal.R;
 public class PayMethodFragment extends Fragment {
 
     private CardView cardView;
+    private ImageView backArrow;
     private NavController navController;
 
     public PayMethodFragment() {
@@ -44,7 +46,14 @@ public class PayMethodFragment extends Fragment {
         cardView = view.findViewById(R.id.card_card);
         cardView.setOnClickListener(this::addCard);
 
+        backArrow = view.findViewById(R.id.backArrow);
+        backArrow.setOnClickListener(this::goBack);
+
         return view;
+    }
+
+    private void goBack(View view) {
+        navController.navigate(R.id.action_payMethodFragment_to_accountFragment);
     }
 
     private void addCard(View view) {
