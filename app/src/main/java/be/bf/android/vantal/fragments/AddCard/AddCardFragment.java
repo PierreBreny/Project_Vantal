@@ -7,6 +7,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +20,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import be.bf.android.vantal.R;
+import be.bf.android.vantal.dal.CardDB;
+import be.bf.android.vantal.dal.CardDao;
+import be.bf.android.vantal.entities.Card;
 
 public class AddCardFragment extends Fragment {
 
@@ -26,6 +31,8 @@ public class AddCardFragment extends Fragment {
     private Button save_btn;
     private TextView tv_cancel;
     private NavController navController;
+
+    private CardDao cardDao;
 
     public AddCardFragment() {
         // Required empty public constructor
@@ -47,6 +54,8 @@ public class AddCardFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_add_card, container, false);
+
+        cardDao = CardDB.instance(requireContext()).cardDao();
 
         navController = NavHostFragment.findNavController(this);
 
@@ -100,12 +109,28 @@ public class AddCardFragment extends Fragment {
         tv_card_digits_3.setText(digits3);
         tv_card_digits_4.setText(digits4);
 
+        // Set value on card
         tv_cardholder.setText(et_cardholder.getText().toString());
         tv_exp_month.setText(et_expiry_month.getText().toString());
         tv_exp_year.setText(et_expiry_year.getText().toString());
         tv_cvv.setText(et_cvv.getText().toString());
 
-        // Save cardNumber in DB
+        //Set value for DB
+        String cardHolder = et_cardholder.getText().toString();
+        Integer cvv = Integer.valueOf(et_cvv.getText().toString());
+        Integer exp_month = Integer.valueOf(et_expiry_month.getText().toString());
+        Integer exp_year = Integer.valueOf(et_expiry_year.getText().toString());
         cardNumber = digits1 + digits2 + digits3 + digits4;
+
+        // Save cardNumber in DB
+
+
+
+//        CardDB cardDb = Room.databaseBuilder(getContext(), CardDB.class, "card-database").build();
+//
+        Card card = new Card(cardHolder, cardNumber, cvv, exp_month, exp_year);
+        cardDao.insert(card);
+//
+//        cardDb.cardDAO().insertAll(card);
     }
 }
