@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -136,12 +137,18 @@ public class RegisterFragment extends Fragment {
         userAPI.createUser(user).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
+                // this method is called when we get response from our api.
+                Toast.makeText(getContext(), "Data added to API", Toast.LENGTH_SHORT).show();
 
+                // we are getting response from our body
+                // and passing it to our modal class.
+                User responseFromAPI = response.body();
+                Log.d("RegisterFrag", String.valueOf(responseFromAPI));
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-
+                Log.d("RegisterFrag", "An error occured with API");
             }
         });
 

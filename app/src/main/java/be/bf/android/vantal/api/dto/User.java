@@ -20,6 +20,9 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
+	public User(String firstName, String lastName, String password, String email, String birthdate, String image, int id, String isOwner) {
+	}
+
 	public void setFirstName(String firstName){
 		this.firstName = firstName;
 	}
