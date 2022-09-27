@@ -8,62 +8,24 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/amenities_card"
-        android:layout_width="352dp"
-        android:layout_height="400dp"
+        android:layout_width="351dp"
+        android:layout_height="532dp"
         android:layout_marginTop="24dp"
         android:clickable="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_van_title" >
+        app:layout_constraintTop_toBottomOf="@+id/add_van_title">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/air_co_card"
-                android:layout_width="149dp"
-                android:layout_height="46dp"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="18dp"
-                android:checkable="true"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardBackgroundColor="@color/white"
-                app:cardElevation="5dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-
-                <ImageView
-                    android:id="@+id/air_conditioning_img"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="12dp"
-                    android:src="@drawable/air_conditionning"
-                    app:tint="@color/black" />
-
-                <TextView
-                    android:id="@+id/tv_air_conditioning"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginTop="14dp"
-                    android:text="Air conditioning"
-                    android:textColor="@color/black" />
-
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/bathtub_card"
                 android:layout_width="149dp"
                 android:layout_height="46dp"
-                android:layout_marginEnd="18dp"
                 android:layout_marginTop="18dp"
+                android:layout_marginEnd="18dp"
                 android:checkable="true"
                 android:clickable="true"
                 android:focusable="true"
@@ -108,7 +70,7 @@
                 app:cardBackgroundColor="@color/white"
                 app:cardElevation="5dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/air_co_card">
+                app:layout_constraintTop_toTopOf="parent">
 
 
                 <ImageView
@@ -138,8 +100,8 @@
                 android:id="@+id/body_soap_card"
                 android:layout_width="149dp"
                 android:layout_height="46dp"
-                android:layout_marginEnd="18dp"
                 android:layout_marginTop="18dp"
+                android:layout_marginEnd="18dp"
                 android:checkable="true"
                 android:clickable="true"
                 android:focusable="true"
@@ -214,8 +176,8 @@
                 android:id="@+id/dishwasher_card"
                 android:layout_width="149dp"
                 android:layout_height="46dp"
-                android:layout_marginEnd="18dp"
                 android:layout_marginTop="18dp"
+                android:layout_marginEnd="18dp"
                 android:checkable="true"
                 android:clickable="true"
                 android:focusable="true"
@@ -290,8 +252,8 @@
                 android:id="@+id/fridge_card"
                 android:layout_width="149dp"
                 android:layout_height="46dp"
-                android:layout_marginEnd="18dp"
                 android:layout_marginTop="18dp"
+                android:layout_marginEnd="18dp"
                 android:checkable="true"
                 android:clickable="true"
                 android:focusable="true"
@@ -366,8 +328,8 @@
                 android:id="@+id/iron_card"
                 android:layout_width="149dp"
                 android:layout_height="46dp"
-                android:layout_marginEnd="18dp"
                 android:layout_marginTop="18dp"
+                android:layout_marginEnd="18dp"
                 android:checkable="true"
                 android:clickable="true"
                 android:focusable="true"
@@ -395,6 +357,272 @@
                     android:layout_marginStart="40dp"
                     android:layout_marginTop="14dp"
                     android:text="Iron and Board"
+                    android:textColor="@color/black" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/kitchen_card"
+                android:layout_width="149dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="18dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hair_dryer_card">
+
+
+                <ImageView
+                    android:id="@+id/kitchen_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/kitchen"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_kitchen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="14dp"
+                    android:text="Kitchen"
+                    android:textColor="@color/black" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/pots_pans_card"
+                android:layout_width="149dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="18dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/kitchen_card">
+
+
+                <ImageView
+                    android:id="@+id/pots_pans_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/pots_pans"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_pots_pans"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="14dp"
+                    android:text="Pots and Pans"
+                    android:textColor="@color/black" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/microwave_card"
+                android:layout_width="149dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="16dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iron_card">
+
+
+                <ImageView
+                    android:id="@+id/microwave_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/microwave"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_microwave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="14dp"
+                    android:text="Microwave"
+                    android:textColor="@color/black" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/shampoo_card"
+                android:layout_width="149dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="16dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/microwave_card">
+
+
+                <ImageView
+                    android:id="@+id/shampoo_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/shampoo"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_shampoo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="14dp"
+                    android:text="Shampoo"
+                    android:textColor="@color/black" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/smart_tv_card"
+                android:layout_width="149dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="18dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pots_pans_card">
+
+
+                <ImageView
+                    android:id="@+id/smart_tv"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/smart_tv"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_smart_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="14dp"
+                    android:text="Smart TV"
+                    android:textColor="@color/black" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/washing_machine_card"
+                android:layout_width="149dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="18dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/smart_tv_card">
+
+
+                <ImageView
+                    android:id="@+id/washing_machine"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/washing_machine"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_washing_machine"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="14dp"
+                    android:text="Washing Mach."
+                    android:textColor="@color/black" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/wifi_card"
+                android:layout_width="149dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="16dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shampoo_card">
+
+
+                <ImageView
+                    android:id="@+id/wifi_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/wifi"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_wifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="14dp"
+                    android:text="Wifi"
                     android:textColor="@color/black" />
 
 
