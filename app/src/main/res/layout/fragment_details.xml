@@ -138,7 +138,7 @@
         android:layout_marginBottom="14dp"
         android:backgroundTint="@color/label"
         android:elevation="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/book_btn"
+        app:layout_constraintBottom_toTopOf="@+id/check_av_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -182,7 +182,7 @@
         app:layout_constraintStart_toEndOf="@+id/price" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/book_btn"
+        android:id="@+id/check_av_btn"
         android:layout_width="170dp"
         android:layout_height="60dp"
         android:layout_marginEnd="16dp"

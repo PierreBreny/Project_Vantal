@@ -1,5 +1,6 @@
 package be.bf.android.vantal.fragments.Details;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -8,9 +9,12 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.denzcoskun.imageslider.ImageSlider;
@@ -35,7 +39,10 @@ public class DetailsFragment extends Fragment {
     TextView description;
     TextView rating;
     TextView price;
+    Button availability_btn;
+    String value = "key";
     private NavController navController;
+    SharedPreferences sharedPreferences;
 
 
 
@@ -63,6 +70,8 @@ public class DetailsFragment extends Fragment {
 
         imageSlider = (ImageSlider) view.findViewById(R.id.slider);
 
+        availability_btn = view.findViewById(R.id.check_av_btn);
+        availability_btn.setOnClickListener(this::logUser);
 
         ArrayList<SlideModel> slideModels = new ArrayList<>();
 
@@ -96,5 +105,17 @@ public class DetailsFragment extends Fragment {
         rating.setText(String.valueOf(van.getRating()));
 
         return view;
+    }
+
+    private void logUser(View view) {
+        // Get ID of logged User
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        Integer userID = sharedPreferences.getInt(value, 0);
+
+        Log.d("AccountFrag", String.valueOf(userID));
+
+        if (userID <= 0) {
+            navController.navigate(R.id.login_fragment);
+        }
     }
 }

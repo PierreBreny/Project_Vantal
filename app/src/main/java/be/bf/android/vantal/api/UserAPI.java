@@ -17,4 +17,7 @@ public interface UserAPI {
     @POST("user")
     Call<User> createUser(@Body User user);
 
+    @GET("user")
+    Call<List<User>> getUserByID(@Query("id") Integer id);
+
 }

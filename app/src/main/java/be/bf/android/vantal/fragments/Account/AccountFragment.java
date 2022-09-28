@@ -1,6 +1,7 @@
 package be.bf.android.vantal.fragments.Account;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -9,6 +10,8 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +25,9 @@ public class AccountFragment extends Fragment {
     private CardView contact_card;
     private CardView payment_methods_card;
     private CardView rent_card;
+    private String value = "key";
     private NavController navController;
+    SharedPreferences sharedPreferences;
 
     // Help number
     private String number;
@@ -44,10 +49,24 @@ public class AccountFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_account, container, false);
 
+        // Get ID of logged User
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        Integer userID = sharedPreferences.getInt(value, 0);
+
+
+
+        Log.d("AccountFrag", String.valueOf(userID));
+
         navController = NavHostFragment.findNavController(this);
+
+        if (userID <= 0) {
+            navController.navigate(R.id.login_fragment);
+        }
+
 
         profile_card = view.findViewById(R.id.profile_card);
         profile_card.setOnClickListener(this::goToProfile);

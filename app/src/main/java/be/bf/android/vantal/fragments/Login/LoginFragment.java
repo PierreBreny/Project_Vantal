@@ -1,5 +1,6 @@
 package be.bf.android.vantal.fragments.Login;
 
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +36,7 @@ public class LoginFragment extends Fragment {
     private NavController navController;
     private UserAPI userAPI;
     private EditText et_email, et_password;
+    SharedPreferences sharedPreferences;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -71,6 +74,8 @@ public class LoginFragment extends Fragment {
         et_email = view.findViewById(R.id.login_email);
         et_password = view.findViewById(R.id.login_password);
 
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+
         return view;
     }
 
@@ -90,6 +95,13 @@ public class LoginFragment extends Fragment {
                     List<User> userList = response.body();
 
                     User user = userList.get(0);
+
+                    // Save userID in shared preference
+                    int userid = user.getId();
+
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putInt("key", userid);
+                    editor.apply();
 
                     Log.d("LoginFrag", String.valueOf(user));
                     navController.navigate(R.id.action_login_fragment_to_homeFragment);
