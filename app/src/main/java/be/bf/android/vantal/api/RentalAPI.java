@@ -12,9 +12,9 @@ import retrofit2.http.Query;
 
 public interface RentalAPI {
 
-    @GET("rental")
-    Call<List<Rental>> getRentalByUser(@Query("userId") int userId);
+    @GET("rentals")
+    Call<List<Rental>> getRentalByUser(@Query("userId") int userId, @Query("_expand") String expand);
 
-    @POST("rental")
+    @POST("rentals")
     Call<Rental> createRental(@Body Rental rental);
 }

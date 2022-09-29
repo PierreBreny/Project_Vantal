@@ -11,13 +11,13 @@ import retrofit2.http.Query;
 
 public interface UserAPI {
 
-    @GET("user")
+    @GET("users")
     Call<List<User>> getUser(@Query("email") String email, @Query("password") String password);
 
-    @POST("user")
+    @POST("users")
     Call<User> createUser(@Body User user);
 
-    @GET("user")
+    @GET("users")
     Call<List<User>> getUserByID(@Query("id") Integer id);
 
 }

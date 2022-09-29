@@ -1,11 +1,22 @@
 package be.bf.android.vantal.api.dto;
 
-public class Rental {
+import java.io.Serializable;
+
+public class Rental implements Serializable {
 	private int id;
 	private int vanId;
 	private String endDate;
 	private int userId;
 	private String startDate;
+	private Van van;
+
+	public Van getVan() {
+		return van;
+	}
+
+	public void setVan(Van van) {
+		this.van = van;
+	}
 
 	public int getId() {
 		return id;
@@ -55,6 +66,7 @@ public class Rental {
 				", endDate='" + endDate + '\'' +
 				", userId=" + userId +
 				", startDate='" + startDate + '\'' +
+				", van=" + van +
 				'}';
 	}
 }

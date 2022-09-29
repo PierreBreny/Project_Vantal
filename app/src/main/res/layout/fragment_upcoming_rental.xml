@@ -6,12 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".fragments.Rental.UpcomingFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Upcoming Rental"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_upcoming_rentals"
+        android:layout_width="408dp"
+        android:layout_height="605dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

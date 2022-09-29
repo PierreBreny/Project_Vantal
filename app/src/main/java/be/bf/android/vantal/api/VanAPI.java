@@ -9,6 +9,6 @@ import retrofit2.http.Query;
 
 public interface VanAPI {
 
-    @GET("van")
+    @GET("vans")
     Call<List<Van>> getVan(@Query("city") String city);
 }
