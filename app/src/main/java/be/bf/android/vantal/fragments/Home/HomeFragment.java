@@ -125,6 +125,7 @@ public class HomeFragment extends Fragment implements VanAdapter.OnVanItemClick 
                         ArrayAdapter<String> cityAdapter = new ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_activated_1, vanCities);
                         binding.autoComplete.setAdapter(cityAdapter);
                     }
+                    Log.d("HomeFrag", vans.toString());
                     adapter.setVans(vans);
                     binding.autoComplete.setText("");
                 }

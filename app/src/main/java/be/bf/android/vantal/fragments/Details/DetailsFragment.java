@@ -8,6 +8,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -15,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.denzcoskun.imageslider.ImageSlider;
@@ -28,12 +32,14 @@ import java.util.List;
 import java.util.ListIterator;
 
 import be.bf.android.vantal.R;
+import be.bf.android.vantal.api.VanAPI;
 import be.bf.android.vantal.api.dto.Van;
 import be.bf.android.vantal.databinding.FragmentDetailsBinding;
 import be.bf.android.vantal.databinding.FragmentHomeBinding;
 
 public class DetailsFragment extends Fragment {
 
+    private RecyclerView rvAmenities;
     ImageSlider imageSlider;
     TextView title;
     TextView description;
@@ -41,6 +47,11 @@ public class DetailsFragment extends Fragment {
     TextView price;
     Button availability_btn;
     String value = "key";
+    ImageView owner_img;
+    TextView firstname_owner;
+    TextView lastname_owner;
+    private AmenitiesAdapter amenitiesAdapter;
+    private VanAPI api;
     private NavController navController;
     SharedPreferences sharedPreferences;
 
@@ -103,6 +114,22 @@ public class DetailsFragment extends Fragment {
         //Get van rating
         rating = view.findViewById(R.id.rating);
         rating.setText(String.valueOf(van.getRating()));
+
+        //Get van Amenities
+        rvAmenities = view.findViewById(R.id.rv_amenities);
+        rvAmenities.setLayoutManager(new GridLayoutManager(requireContext(), 2));
+
+        List<String> amenities = van.getAmenities();
+        Log.d("DetailFrag", amenities.toString());
+        amenitiesAdapter = new AmenitiesAdapter(amenities, requireContext());
+        rvAmenities.setAdapter(amenitiesAdapter);
+
+        firstname_owner = view.findViewById(R.id.tv_owner_firstname);
+        lastname_owner = view.findViewById(R.id.tv_owner_lastname);
+
+        firstname_owner.setText(van.getUser().getFirstName());
+        lastname_owner.setText(van.getUser().getLastName());
+
 
         return view;
     }

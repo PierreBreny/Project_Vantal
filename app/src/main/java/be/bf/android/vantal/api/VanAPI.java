@@ -11,4 +11,7 @@ public interface VanAPI {
 
     @GET("vans")
     Call<List<Van>> getVan(@Query("city") String city);
+
+    @GET("vans")
+    Call<List<Van>> getVanWithUser(@Query("vanId") int vanId, @Query("_expand") String _expand);
 }
