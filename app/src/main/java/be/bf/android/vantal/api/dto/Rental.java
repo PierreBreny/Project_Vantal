@@ -10,6 +10,14 @@ public class Rental implements Serializable {
 	private String startDate;
 	private Van van;
 
+	public Rental(int vanId, String endDate, int userId, String startDate, Van van) {
+		this.vanId = vanId;
+		this.endDate = endDate;
+		this.userId = userId;
+		this.startDate = startDate;
+		this.van = van;
+	}
+
 	public Van getVan() {
 		return van;
 	}

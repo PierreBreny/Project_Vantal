@@ -2,16 +2,11 @@ package be.bf.android.vantal.fragments.Details;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,22 +15,22 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import com.bumptech.glide.Glide;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
-
 import be.bf.android.vantal.R;
-import be.bf.android.vantal.api.VanAPI;
+import be.bf.android.vantal.api.RetrofitClient;
+import be.bf.android.vantal.api.UserAPI;
+import be.bf.android.vantal.api.dto.User;
 import be.bf.android.vantal.api.dto.Van;
-import be.bf.android.vantal.databinding.FragmentDetailsBinding;
-import be.bf.android.vantal.databinding.FragmentHomeBinding;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DetailsFragment extends Fragment {
 
@@ -51,7 +46,7 @@ public class DetailsFragment extends Fragment {
     TextView firstname_owner;
     TextView lastname_owner;
     private AmenitiesAdapter amenitiesAdapter;
-    private VanAPI api;
+    private UserAPI api;
     private NavController navController;
     SharedPreferences sharedPreferences;
 
@@ -85,6 +80,8 @@ public class DetailsFragment extends Fragment {
         availability_btn.setOnClickListener(this::logUser);
 
         ArrayList<SlideModel> slideModels = new ArrayList<>();
+
+        api = RetrofitClient.client.create(UserAPI.class);
 
         //Get van images
         Van van = (Van) getArguments().getSerializable("van");
@@ -120,15 +117,37 @@ public class DetailsFragment extends Fragment {
         rvAmenities.setLayoutManager(new GridLayoutManager(requireContext(), 2));
 
         List<String> amenities = van.getAmenities();
-        Log.d("DetailFrag", amenities.toString());
+
         amenitiesAdapter = new AmenitiesAdapter(amenities, requireContext());
         rvAmenities.setAdapter(amenitiesAdapter);
 
         firstname_owner = view.findViewById(R.id.tv_owner_firstname);
         lastname_owner = view.findViewById(R.id.tv_owner_lastname);
+        owner_img = view.findViewById(R.id.iv_profile_image);
 
-        firstname_owner.setText(van.getUser().getFirstName());
-        lastname_owner.setText(van.getUser().getLastName());
+        //GET OWNER INFO
+
+        // 1. Get van userId
+        int userid = van.getUserId();
+
+        // 2. Get user with userId
+        api.getUserByID(userid).enqueue(new Callback<List<User>>() {
+            @Override
+            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                if (response.body() != null) {
+                    List<User> users = response.body();
+                    User owner = users.get(0);
+                    Log.d("DetailsFrag", owner.toString());
+                    firstname_owner.setText(owner.getFirstName());
+                    lastname_owner.setText(owner.getLastName());
+                    Glide.with(requireContext()).load(owner.getImage()).centerCrop().into(owner_img);
+                }
+            }
+            @Override
+            public void onFailure(Call<List<User>> call, Throwable t) {
+                Log.d("DetailsFrag", t.getMessage());
+            }
+        });
 
 
         return view;
@@ -139,10 +158,18 @@ public class DetailsFragment extends Fragment {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         Integer userID = sharedPreferences.getInt(value, 0);
 
-        Log.d("AccountFrag", String.valueOf(userID));
+
 
         if (userID <= 0) {
             navController.navigate(R.id.login_fragment);
+        } else {
+            // 1. Get van
+            Van van = (Van) getArguments().getSerializable("van");
+            // 2. Send van in Bundle
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("van", van);
+            // 3. Go Booking
+            navController.navigate(R.id.action_detailsFragment_to_booking_fragment, bundle);
         }
     }
 }

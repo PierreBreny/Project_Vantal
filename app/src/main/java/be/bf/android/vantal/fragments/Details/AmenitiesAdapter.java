@@ -23,7 +23,6 @@ public class AmenitiesAdapter extends RecyclerView.Adapter<AmenitiesAdapter.View
     private Context context;
 
     public AmenitiesAdapter(List<String> amenities, Context context) {
-        Log.d("Adapter", amenities.toString());
         this.amenities = amenities;
         this.context = context;
     }

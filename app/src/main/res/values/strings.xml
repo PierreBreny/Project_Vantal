@@ -49,4 +49,7 @@
     <string name="cardholder">Cardholder name</string>
     <string name="xxxx">XXXX</string>
     <string name="expiry">expiry</string>
+    <string name="new_booking">New Booking</string>
+    <string name="end_date">End Date</string>
+    <string name="start_date">Start Date</string>
 </resources>
