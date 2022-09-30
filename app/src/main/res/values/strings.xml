@@ -29,7 +29,7 @@
     <string name="earn_cash">Earn some cash by sharing it</string>
     <string name="edit_profile">Edit profile</string>
     <string name="member_since">Member since</string>
-    <string name="edit_account">Edit or delete my account</string>
+    <string name="delete_account">Delete my account</string>
     <string name="logout">Log out</string>
     <string name="rentals_lowcase">rentals</string>
     <string name="mobile_phone">Mobile phone</string>
@@ -39,4 +39,17 @@
     <string name="country">Country</string>
     <string name="additional_info">Additional information</string>
     <string name="about_me">A bit about me (optional)</string>
+    <string name="comma">,</string>
+    <string name="subject">Subject:</string>
+    <string name="message">Message:</string>
+    <string name="type_message">Type your message here</string>
+    <string name="send">Send</string>
+    <string name="add_card">Add card</string>
+    <string name="no_card_yet">You have not registered a card yet.</string>
+    <string name="cardholder">Cardholder name</string>
+    <string name="xxxx">XXXX</string>
+    <string name="expiry">expiry</string>
+    <string name="new_booking">New Booking</string>
+    <string name="end_date">End Date</string>
+    <string name="start_date">Start Date</string>
 </resources>

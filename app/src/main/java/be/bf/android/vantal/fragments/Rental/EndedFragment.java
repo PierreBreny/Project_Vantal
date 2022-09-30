@@ -1,4 +1,4 @@
-package be.bf.android.vantal.fragments;
+package be.bf.android.vantal.fragments.Rental;
 
 import android.os.Bundle;
 
@@ -10,14 +10,16 @@ import android.view.ViewGroup;
 
 import be.bf.android.vantal.R;
 
-public class EditProfileFragment extends Fragment {
 
-    public EditProfileFragment() {
+public class EndedFragment extends Fragment {
+
+
+    public EndedFragment() {
         // Required empty public constructor
     }
 
-    public static EditProfileFragment newInstance(String param1, String param2) {
-        EditProfileFragment fragment = new EditProfileFragment();
+    public static EndedFragment newInstance(String param1, String param2) {
+        EndedFragment fragment = new EndedFragment();
         return fragment;
     }
 
@@ -30,6 +32,6 @@ public class EditProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_edit_profile, container, false);
+        return inflater.inflate(R.layout.fragment_ended, container, false);
     }
 }

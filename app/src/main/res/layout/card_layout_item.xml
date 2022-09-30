@@ -9,14 +9,8 @@
     app:cardElevation="8dp"
     app:cardMaxElevation="10dp"
     app:cardPreventCornerOverlap="true"
-    app:cardUseCompatPadding="true">
-
-    <!-- In the above cardview widget cardelevation property will give elevation to your card view
-        card corner radius will provide radius to your card view card background color will give
-        background color to your card view card max elevation will give the cardview maximum
-        elevation card prevent corner overlap will add padding to CardView on v20 and before to
-        prevent intersections between the Card content and rounded corners. Card use compact padding
-        will add padding in API v21+ as well to have the same measurements with previous versions -->
+    app:cardUseCompatPadding="true"
+    android:clickable="true">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -40,8 +34,7 @@
             android:layout_marginTop="-8dp"
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="10dp"
-            android:contentDescription="@string/app_name"
-             />
+            android:contentDescription="@string/app_name" />
 
         <TextView
             android:id="@+id/titleVan"
@@ -70,7 +63,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/int_distance"
+            android:id="@+id/city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/titleVan"
@@ -78,19 +71,31 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="3dp"
             android:drawablePadding="2dp"
-            android:text="1.6"
+            android:text="@string/city"
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/kilometers"
+            android:id="@+id/comma"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/titleVan"
-            android:layout_marginStart="2.5dp"
-            android:layout_marginTop="3dp"
-            android:layout_toEndOf="@+id/int_distance"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="2dp"
+            android:layout_toEndOf="@+id/city"
             android:drawablePadding="2dp"
-            android:text="kilometers"
+            android:text="@string/comma"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/country"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleVan"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="3dp"
+            android:layout_toEndOf="@+id/comma"
+            android:drawablePadding="2dp"
+            android:text="@string/country"
             android:textSize="16sp" />
 
         <ImageView
@@ -107,7 +112,7 @@
             android:id="@+id/currency"
             android:layout_width="wrap_content"
             android:layout_height="17dp"
-            android:layout_below="@+id/int_distance"
+            android:layout_below="@+id/city"
             android:layout_alignParentStart="true"
             android:layout_marginStart="11dp"
             android:layout_marginTop="6.5dp"
@@ -117,7 +122,7 @@
             android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/kilometers"
+            android:layout_below="@+id/city"
             android:layout_marginStart="1.5dp"
             android:layout_marginTop="2.5dp"
             android:layout_toEndOf="@+id/currency"
@@ -129,7 +134,7 @@
             android:id="@+id/tv_night"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/kilometers"
+            android:layout_below="@+id/city"
             android:layout_marginStart="7dp"
             android:layout_marginTop="2.5dp"
             android:layout_marginEnd="3dp"
