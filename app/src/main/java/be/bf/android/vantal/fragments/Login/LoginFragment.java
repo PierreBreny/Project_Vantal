@@ -104,7 +104,8 @@ public class LoginFragment extends Fragment {
                     editor.apply();
 
                     Log.d("LoginFrag", String.valueOf(user));
-                    navController.navigate(R.id.action_login_fragment_to_homeFragment);
+//                    navController.navigate(R.id.action_login_fragment_to_homeFragment);
+                    navController.popBackStack();
                     Toast.makeText(getContext(), "Welcome back, "+user.getFirstName()+"!", Toast.LENGTH_SHORT).show();
                 }
 

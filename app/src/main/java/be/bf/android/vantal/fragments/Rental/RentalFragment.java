@@ -1,10 +1,14 @@
 package be.bf.android.vantal.fragments.Rental;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +24,9 @@ public class RentalFragment extends Fragment {
     TabLayout tabLayout;
     ViewPager2 viewPager2;
     VPAdapter vpAdapter;
+    SharedPreferences sharedPreferences;
+    private String value = "key";
+    NavController navController;
 
     public RentalFragment() {
         // Required empty public constructor
@@ -45,6 +52,16 @@ public class RentalFragment extends Fragment {
        viewPager2 = view.findViewById(R.id.viewPager);
        vpAdapter = new VPAdapter(getActivity());
        viewPager2.setAdapter(vpAdapter);
+
+       navController = NavHostFragment.findNavController(this);
+
+        // Get ID of logged User
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        Integer userID = sharedPreferences.getInt(value, 0);
+
+        if (userID <= 0) {
+            navController.navigate(R.id.login_fragment);
+        }
 
        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
            @Override
