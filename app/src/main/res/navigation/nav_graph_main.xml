@@ -13,17 +13,74 @@
         <action
             android:id="@+id/action_homeFragment_to_mapFragment"
             app:destination="@id/mapFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <argument
+            android:name="user"
+            app:argType="be.bf.android.vantal.api.dto.User" />
+        <action
+            android:id="@+id/action_homeFragment_to_login_fragment"
+            app:destination="@id/login_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/bookingFragment"
-        android:name="be.bf.android.vantal.fragments.Booking.BookingFragment"
-        android:label="fragment_booking"
-        tools:layout="@layout/fragment_booking" />
+        android:id="@+id/popFragment"
+        android:name="be.bf.android.vantal.fragments.Pop.PopFragment"
+        android:label="fragment_pop"
+        tools:layout="@layout/fragment_pop">
+
+        <action
+            android:id="@+id/action_popFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_popFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/profileFragment"
-        android:name="be.bf.android.vantal.fragments.Profile.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        android:id="@+id/detailsFragment"
+        android:name="be.bf.android.vantal.fragments.Details.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details">
+
+        <action
+            android:id="@+id/action_detailsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_booking_fragment"
+            app:destination="@id/booking_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rentalFragment"
+        android:name="be.bf.android.vantal.fragments.Rental.RentalFragment"
+        android:label="fragment_booking"
+        tools:layout="@layout/fragment_rental" />
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="be.bf.android.vantal.fragments.Account.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_accountFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_contactFragment"
+            app:destination="@id/contactFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_payMethodFragment"
+            app:destination="@id/payMethodFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_login_fragment"
+            app:destination="@id/login_fragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_addVanFragment"
+            app:destination="@id/addVanFragment" />
+        <argument
+            android:name="user"
+            app:argType="be.bf.android.vantal.api.dto.User" />
+    </fragment>
     <fragment
         android:id="@+id/mapFragment"
         android:name="be.bf.android.vantal.fragments.Map.MapFragment"
@@ -33,5 +90,117 @@
         <action
             android:id="@+id/action_mapFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="be.bf.android.vantal.fragments.Profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile">
+
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_login_fragment"
+            app:destination="@id/login_fragment" />
+        <argument
+            android:name="user"
+            app:argType="be.bf.android.vantal.api.dto.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="be.bf.android.vantal.fragments.Profile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile">
+        <action
+            android:id="@+id/action_editProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactFragment"
+        android:name="be.bf.android.vantal.fragments.Contact.ContactFragment"
+        android:label="fragment_contact"
+        tools:layout="@layout/fragment_contact">
+        <action
+            android:id="@+id/action_contactFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/payMethodFragment"
+        android:name="be.bf.android.vantal.fragments.PayMethod.PayMethodFragment"
+        android:label="fragment_pay_method"
+        tools:layout="@layout/fragment_pay_method">
+        <action
+            android:id="@+id/action_payMethodFragment_to_addCardFragment"
+            app:destination="@id/addCardFragment" />
+        <action
+            android:id="@+id/action_payMethodFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCardFragment"
+        android:name="be.bf.android.vantal.fragments.AddCard.AddCardFragment"
+        android:label="fragment_add_card"
+        tools:layout="@layout/fragment_add_card">
+
+        <action
+            android:id="@+id/action_addCardFragment_to_payMethodFragment"
+            app:destination="@id/payMethodFragment" />
+        <action
+            android:id="@+id/action_addCardFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="be.bf.android.vantal.fragments.Register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register">
+
+        <action
+            android:id="@+id/action_registerFragment_to_login_fragment"
+            app:destination="@id/login_fragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="be.bf.android.vantal.fragments.Login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_login_fragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_login_fragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addVanFragment"
+        android:name="be.bf.android.vantal.fragments.AddVan.AddVanFragment"
+        tools:label="fragment_add_van"
+        tools:layout="@layout/fragment_add_van">
+
+        <action
+            android:id="@+id/action_addVanFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
+    <fragment android:id="@+id/booking_fragment"
+        android:name="be.bf.android.vantal.fragments.Booking.BookingFragment"
+        android:label="fragment_booking"
+        tools:layout="@layout/fragment_booking">
+        <action
+            android:id="@+id/action_booking_fragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_booking_fragment_to_rentalFragment"
+            app:destination="@id/rentalFragment" />
     </fragment>
 </navigation>

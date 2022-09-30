@@ -1,8 +1,9 @@
 package be.bf.android.vantal.api.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Van{
+public class Van implements Serializable {
 	private String country;
 	private List<String> images;
 	private String city;
@@ -16,6 +17,25 @@ public class Van{
 	private int id;
 	private String brand;
 	private String longitude;
+	private List<String> amenities;
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<String> getAmenities() {
+		return amenities;
+	}
+
+	public void setAmenities(List<String> amenities) {
+		this.amenities = amenities;
+	}
+
 
 	public void setCountry(String country){
 		this.country = country;

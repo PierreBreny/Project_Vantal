@@ -11,9 +11,9 @@
         android:id="@+id/search_cardview"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
         app:cardCornerRadius="25dp"
         app:cardElevation="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,26 +27,28 @@
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
             android:textColorHint="#7E7C7C"
+            app:boxCornerRadiusBottomEnd="25dp"
             app:boxBackgroundColor="@color/white"
             app:boxStrokeWidth="0dp"
             app:boxStrokeWidthFocused="0dp"
             app:endIconCheckable="true"
             app:endIconDrawable="@drawable/ic_map"
+            app:hintEnabled="false"
             app:endIconMode="custom"
             app:endIconTint="#BF3F4343"
-            app:hintAnimationEnabled="true"
-            app:hintEnabled="true"
-            app:hintTextAppearance="@style/TextAppearance.AppCompat.Small"
             app:hintTextColor="#A1A1A1"
             app:startIconDrawable="@drawable/ic_baseline_search_24"
+            android:hint="@string/search"
             app:startIconTint="#272626">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <AutoCompleteTextView
+                android:id="@+id/autoComplete"
+                android:hint="@string/search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/search"
                 android:textCursorDrawable="@drawable/cursor"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.cardview.widget.CardView>
@@ -55,11 +57,9 @@
         android:id="@+id/rv_van_home"
         android:layout_width="369dp"
         android:layout_height="595dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_cardview" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
