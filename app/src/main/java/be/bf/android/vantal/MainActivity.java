@@ -78,13 +78,30 @@ public class MainActivity extends AppCompatActivity {
         bottomTab = findViewById(R.id.bottom_navigation);
         fragmentContainerView = findViewById(R.id.fragmentContainerView);
 
+        // Check if app is installed for the first time
+        SharedPreferences preferences = getSharedPreferences("PREFERENCES", MODE_PRIVATE);
+        String FirstTime = preferences.getString("First_Time_Install", "");
+        Log.d("MainActivity", FirstTime);
 
+        if (FirstTime.equals("")) {
 
-        NavHostFragment navHostFragment =
-                (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainerView);
-        navController = navHostFragment.getNavController();
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("First_Time_Install", "No");
+            editor.apply();
 
-        NavigationUI.setupWithNavController(bottomTab, navController);
+            // If app open for the first time
+            Intent intent = new Intent(this, PopActivity.class);
+            startActivity(intent);
+
+        } else {
+
+            NavHostFragment navHostFragment =
+                    (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainerView);
+            navController = navHostFragment.getNavController();
+
+            NavigationUI.setupWithNavController(bottomTab, navController);
+        }
+
     }
 
 
