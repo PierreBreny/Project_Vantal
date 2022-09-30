@@ -66,6 +66,7 @@ public class BookingFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -105,6 +106,51 @@ public class BookingFragment extends Fragment {
         return view;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void pickEndDate(View view) {
+        // create instance of the material date picker
+        MaterialDatePicker.Builder dateBuilder = MaterialDatePicker.Builder.datePicker();
+
+        // define the properties of the materialDateBuilder
+        dateBuilder.setTitleText("Start Date");
+
+        // create instance of date picker
+        final MaterialDatePicker datePicker = dateBuilder.build();
+
+        datePicker.show(getChildFragmentManager(), "MATERIAL_DATE_PICKER");
+
+        // now handle the positive button click
+        datePicker.addOnPositiveButtonClickListener(
+                selection -> {
+                    // set selected date
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy");
+                    endDate_value.setText(LocalDate.parse(datePicker.getHeaderText(), formatter).toString());
+                });
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void pickStartDate(View view) {
+        // create instance of the material date picker
+        MaterialDatePicker.Builder dateBuilder = MaterialDatePicker.Builder.datePicker();
+
+        // define the properties of the materialDateBuilder
+        dateBuilder.setTitleText("Start Date");
+
+        // create instance of date picker
+        final MaterialDatePicker datePicker = dateBuilder.build();
+
+        datePicker.show(getChildFragmentManager(), "MATERIAL_DATE_PICKER");
+
+        // now handle the positive button click
+        datePicker.addOnPositiveButtonClickListener(
+                selection -> {
+                    // set selected date
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy");
+
+                    startDate_value.setText(LocalDate.parse(datePicker.getHeaderText(), formatter).toString());
+                });
+    }
+
     private void saveRental(View view) {
 
         Van van = (Van) getArguments().getSerializable("van");
@@ -131,46 +177,4 @@ public class BookingFragment extends Fragment {
 
     }
 
-    private void pickEndDate(View view) {
-        // create instance of the material date picker
-        MaterialDatePicker.Builder dateBuilder = MaterialDatePicker.Builder.datePicker();
-
-        // define the properties of the materialDateBuilder
-        dateBuilder.setTitleText("Start Date");
-
-        // create instance of date picker
-        final MaterialDatePicker datePicker = dateBuilder.build();
-
-        datePicker.show(getChildFragmentManager(), "MATERIAL_DATE_PICKER");
-
-        // now handle the positive button click
-        datePicker.addOnPositiveButtonClickListener(
-                selection -> {
-                    // set selected date
-                    endDate_value.setText(datePicker.getHeaderText());
-                });
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    private void pickStartDate(View view) {
-        // create instance of the material date picker
-        MaterialDatePicker.Builder dateBuilder = MaterialDatePicker.Builder.datePicker();
-
-        // define the properties of the materialDateBuilder
-        dateBuilder.setTitleText("Start Date");
-
-        // create instance of date picker
-        final MaterialDatePicker datePicker = dateBuilder.build();
-
-        datePicker.show(getChildFragmentManager(), "MATERIAL_DATE_PICKER");
-
-        // now handle the positive button click
-        datePicker.addOnPositiveButtonClickListener(
-                selection -> {
-                    // set selected date
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy");
-
-                    startDate_value.setText(LocalDate.parse(datePicker.getHeaderText(), formatter).toString());
-                });
-    }
 }

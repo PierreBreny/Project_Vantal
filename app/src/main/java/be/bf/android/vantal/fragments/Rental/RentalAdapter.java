@@ -99,7 +99,7 @@ public class RentalAdapter extends RecyclerView.Adapter<RentalAdapter.ViewHolder
         String startDate = currentRental.getStartDate();
         String endDate = currentRental.getEndDate();
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         LocalDate startLocalDate = LocalDate.parse(startDate, formatter);
         LocalDate endLocalDate = LocalDate.parse(endDate, formatter);

@@ -129,7 +129,7 @@
         android:id="@+id/confirm_btn"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="88dp"
+        android:layout_marginBottom="30dp"
         android:elevation="15dp"
         android:text="Confirm Booking"
         android:textSize="18sp"
