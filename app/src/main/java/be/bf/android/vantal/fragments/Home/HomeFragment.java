@@ -1,6 +1,7 @@
 package be.bf.android.vantal.fragments.Home;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -13,6 +14,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,6 +55,8 @@ public class HomeFragment extends Fragment implements VanAdapter.OnVanItemClick 
     private VanAPI api;
     String query = null;
     private NavController navController;
+    private String value = "key";
+    SharedPreferences sharedPreferences;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -88,6 +92,10 @@ public class HomeFragment extends Fragment implements VanAdapter.OnVanItemClick 
         });
 
         binding.searchBar.setEndIconOnClickListener(this::loadMap);
+
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        Integer userID = sharedPreferences.getInt(value, 0);
+
 
         adapter = new VanAdapter(requireContext(), new ArrayList<>(), this);
         binding.rvVanHome.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false));

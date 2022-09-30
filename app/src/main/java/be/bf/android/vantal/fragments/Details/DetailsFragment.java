@@ -161,7 +161,7 @@ public class DetailsFragment extends Fragment {
 
 
         if (userID <= 0) {
-            navController.navigate(R.id.login_fragment);
+            navController.navigate(R.id.popFragment);
         } else {
             // 1. Get van
             Van van = (Van) getArguments().getSerializable("van");

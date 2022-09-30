@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomTab;
     private FragmentContainerView fragmentContainerView;
+    NavController navController;
+
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,9 +78,11 @@ public class MainActivity extends AppCompatActivity {
         bottomTab = findViewById(R.id.bottom_navigation);
         fragmentContainerView = findViewById(R.id.fragmentContainerView);
 
+
+
         NavHostFragment navHostFragment =
                 (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainerView);
-        NavController navController = navHostFragment.getNavController();
+        navController = navHostFragment.getNavController();
 
         NavigationUI.setupWithNavController(bottomTab, navController);
     }

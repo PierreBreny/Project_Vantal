@@ -64,7 +64,7 @@ public class AccountFragment extends Fragment {
         navController = NavHostFragment.findNavController(this);
 
         if (userID <= 0) {
-            navController.navigate(R.id.login_fragment);
+            navController.navigate(R.id.popFragment);
         }
 
 

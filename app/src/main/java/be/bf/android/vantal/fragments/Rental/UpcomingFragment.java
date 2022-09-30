@@ -74,7 +74,7 @@ public class UpcomingFragment extends Fragment implements RentalAdapter.OnRental
         Integer userID = sharedPreferences.getInt(value, 0);
 
         if (userID <= 0) {
-            navController.navigate(R.id.login_fragment);
+            navController.navigate(R.id.popFragment);
         }
 
         getRentals(userID);
