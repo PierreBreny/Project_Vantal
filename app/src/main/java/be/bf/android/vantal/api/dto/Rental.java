@@ -1,5 +1,7 @@
 package be.bf.android.vantal.api.dto;
 
+import android.text.Editable;
+
 import java.io.Serializable;
 
 public class Rental implements Serializable {
@@ -9,13 +11,15 @@ public class Rental implements Serializable {
 	private int userId;
 	private String startDate;
 	private Van van;
+	private int guest;
 
-	public Rental(int vanId, String endDate, int userId, String startDate, Van van) {
+	public Rental(int vanId, String endDate, int userId, String startDate, Van van, int guest) {
 		this.vanId = vanId;
 		this.endDate = endDate;
 		this.userId = userId;
 		this.startDate = startDate;
 		this.van = van;
+		this.guest = guest;
 	}
 
 	public Van getVan() {
@@ -64,6 +68,14 @@ public class Rental implements Serializable {
 
 	public String getStartDate(){
 		return startDate;
+	}
+
+	public int getGuest() {
+		return guest;
+	}
+
+	public void setGuest(int guest) {
+		this.guest = guest;
 	}
 
 	@Override

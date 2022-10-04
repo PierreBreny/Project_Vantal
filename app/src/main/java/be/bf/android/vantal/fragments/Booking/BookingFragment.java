@@ -10,6 +10,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.preference.PreferenceManager;
+import android.text.Editable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -123,7 +124,7 @@ public class BookingFragment extends Fragment {
         datePicker.addOnPositiveButtonClickListener(
                 selection -> {
                     // set selected date
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy");
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d, yyyy");
                     endDate_value.setText(LocalDate.parse(datePicker.getHeaderText(), formatter).toString());
                 });
     }
@@ -145,7 +146,7 @@ public class BookingFragment extends Fragment {
         datePicker.addOnPositiveButtonClickListener(
                 selection -> {
                     // set selected date
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy");
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d, yyyy");
 
                     startDate_value.setText(LocalDate.parse(datePicker.getHeaderText(), formatter).toString());
                 });
@@ -158,9 +159,10 @@ public class BookingFragment extends Fragment {
         String startDate = startDate_value.getText().toString();
         String endDate = endDate_value.getText().toString();
         Integer userID = sharedPreferences.getInt(value, 0);
+        int guest = (Integer.valueOf(String.valueOf(nbr_guest.getText())));
 
 
-        Rental rental = new Rental(vanId,endDate, userID, startDate, van);
+        Rental rental = new Rental(vanId,endDate, userID, startDate, van, guest);
 
         rentalAPI.createRental(rental).enqueue(new Callback<Rental>() {
             @Override
