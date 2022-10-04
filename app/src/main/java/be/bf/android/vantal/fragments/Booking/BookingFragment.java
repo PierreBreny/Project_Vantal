@@ -113,7 +113,7 @@ public class BookingFragment extends Fragment {
         MaterialDatePicker.Builder dateBuilder = MaterialDatePicker.Builder.datePicker();
 
         // define the properties of the materialDateBuilder
-        dateBuilder.setTitleText("Start Date");
+        dateBuilder.setTitleText("End Date");
 
         // create instance of date picker
         final MaterialDatePicker datePicker = dateBuilder.build();
